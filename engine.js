@@ -20,17 +20,16 @@ function testButtonClicked() {
 function fileChosen() {
   let chooser = document.querySelector('input[type=file]');
   chooser.addEventListener('change', function() {
-    let fs = require('fs');
+    const fs = require('fs');
+    const path = require('path');
     
-    let numDir = 0;
-    let numFile = 0;
     let files = this.files;
     if (files.length === 0) return;
+
     for (let i = 0; i < files.length; i++) {
-      if (fs.lstatSync(files[i].path).isDirectory()) 
-        console.log('dir = ' + files[i].path + '\n');
-      else
-        console.log('file = ' + files[i].path + '\n');
+        console.log('path = ' + files[i].path + 
+                    ', dir =' + path.dirname(files[i].path) + 
+                    ', base = ' + path.basename(files[i].path) + '\n');
     }
   });
   

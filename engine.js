@@ -1,12 +1,12 @@
 'use strict';
 
 function readFilesAndDirs() {
-    var fs = require('fs');
+    var fs = require('fs')
     
     var files = fs.readdirSync(process.cwd());
     files.forEach(function(element) {
-        alert(element);
-    }, this);
+        alert(element)
+    }, this)
 }
 
 function testButtonClicked() {
@@ -14,13 +14,13 @@ function testButtonClicked() {
     button.addEventListener('click', function() {
         // alert('hey');
         var fileAndDirs = readFilesAndDirs()
-    });
+    })
 }
 
 function fileChosen() {
     var chooser = document.querySelector('.form__file')
     chooser.addEventListener('change', function() {
-        
+        readFilesAndDirs()
     })
 }
 

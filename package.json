@@ -4,5 +4,10 @@
     "main": "index.html",
     "window": {
         "toolbar": true
+    },
+    "dependencies": {
+        "xml2js": "latest",
+        "bootstrap": "3.3.7",
+        "jquery": "latest"
     }
 }

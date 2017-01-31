@@ -67,7 +67,7 @@ $(document).ready(function () {
   $('.form__page').load('xml.html')
   // $('.form__page').load('xml.html')
   var parseString = require('xml2js').parseString;
-  var xml = "<root>Hello xml2js!</root>"
+  var xml = "<root>Hiiiiii xml2js!</root>"
   parseString(xml, function (err, result) {
       console.dir(result);
   });

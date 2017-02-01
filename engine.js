@@ -19,7 +19,46 @@ function fileChosen() {
 
 }
 
+function load() {
+  let dir = document.querySelector('input[type=file]');
+  let xml2js = require('xml2js')
+  let xmlFiles = []
+  let files = dir.files
+  for (var i = 0; i < files.length; i++) {
+    let file = files[i].path
+    console.log(typeof file)
+    console.log('file = ' + file)
+    let fs = require('fs')
+
+  }
+  console.log(xmlFiles.length)
+}
+
+// function isXML (path, callback) {
+//   let fs = require('fs')
+//   fs.readFile(path, function (err, data) {
+//     if (err) throw err
+//     let xml2js = require('xml2js')
+//     let parser = new xml2js.Parser()
+
+
+//     parser.parseString(data, function (err, result) {
+//       if (err) {
+
+//       } else {
+//         console.log('parseString done' + '\n')
+//         callback(err, path)
+//       }
+
+//     })
+//   })
+// }
+
 function createMenu() {
+  // let xml = require('./xml.js')
+  // console.log(xml.hello)
+  // xml.setText(document.getElementById('el'))
+  
   const menuItem = ['xml', 'plist', 'image', 'sql']
   let menu = document.querySelector('.menu')
 
@@ -33,62 +72,49 @@ function createMenu() {
     let li = document.createElement('li')
     li.appendChild(a)
     menu.appendChild(li)
+
     
     $(a).on('click', function () {
-      var xmlPage = require('./xml.js')
-      let dir = document.querySelector('input[type=file]');
-      let files = dir.files
-      let data = xmlPage.listXMLFiles(files)
-      $('.task').load(url, data, function() {
-        // console.log(typeof data)
-        // $('.task__xml__select').append('<option val="1">One</option>')
+      $('.task').load(url, function () {
+        let dir = document.querySelector('input[type=file]');
+        let xmls = []
+        for (let i = 0; i < dir.files.length; i++) {
+          let path = dir.files[i].path
+          var xml = require('./xml.js')
+          xml.parseXML(path, function (err, xmlPath) {
+            if (err) {  }
+            else {
+              console.log("it's xml \n")
+              xmls.push(xmlPath)
+              console.log(xmls.length)
+            }
+          }) 
+        }
       })
-      // $('select').append($('<option>', {value:1, text:'One'}))
-      
     })
-    
-    // a.onclick = function () {
-    //   console.log(url)
-    //   $('.task').load(url)
-    //   loadUI()
-    // }
   }
 
 
 }
 
-function loadUI() {
-  console.log('load UI')
-  if ($('.task__xml__select').length) {
-    var xmlPage = require('./xml.js')
-    let dir = document.querySelector('input[type=file]');
-    let files = dir.files
-    // for (var i = 0; i < files.length; i++) {
-    //   console.log(files[i].path + '\n')
-    // }
-
-    console.log(typeof xmlPage)
-    console.log(typeof xmlPage.listXMLFiles)
-    // console.log(typeof document.getElementsByClassName('task__xml__select')[0])
-    console.log(typeof $('.task__xml__select'))
-    let select = document.getElementsByClassName('task__xml__select')[0]
 
 
-    // xmlPage.listXMLFiles(select, files)
-    // $('task__xml__select')
-  }
-}
+// function loadUI() {
+//   console.log('load UI')
+//   if ($('.task__xml__select').length) {
+//     var xmlPage = require('./xml.js')
+//     let dir = document.querySelector('input[type=file]');
+//     let files = dir.files
+   
+//     let select = document.getElementsByClassName('task__xml__select')[0]
+//   }
+// }
 
 function setupUI() {
   createMenu()
   // loadUI()
   // fileChosen()
 }
-
-// window.onload = function () {
-//   setupUI()
-// }
-
 
 $(document).ready(function () {
   setupUI()

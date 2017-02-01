@@ -80,7 +80,7 @@ function createMenu() {
         let xmls = []
         for (let i = 0; i < dir.files.length; i++) {
           let path = dir.files[i].path
-          var xml = require('./xml.js')
+          let xml = require('./xml.js')
           xml.parseXML(path, function (err, xmlPath) {
             if (err) {  }
             else {

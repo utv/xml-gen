@@ -1,5 +1,6 @@
 'use strict'
 // var $ = require('jQuery')
+var $ = require('jQuery');
 
 function fileChosen() {
   let chooser = document.querySelector('input[type=file]')
@@ -58,7 +59,7 @@ function createMenu() {
   // let xml = require('./xml.js')
   // console.log(xml.hello)
   // xml.setText(document.getElementById('el'))
-  
+
   const menuItem = ['xml', 'plist', 'image', 'sql']
   let menu = document.querySelector('.menu')
 
@@ -73,28 +74,19 @@ function createMenu() {
     li.appendChild(a)
     menu.appendChild(li)
 
-    
     $(a).on('click', function () {
       $('.task').load(url, function () {
-        let dir = document.querySelector('input[type=file]');
-        let xmls = []
-        for (let i = 0; i < dir.files.length; i++) {
-          let path = dir.files[i].path
-          let xml = require('./xml.js')
-          xml.parseXML(path, function (err, xmlPath) {
-            if (err) {  }
-            else {
-              console.log("it's xml \n")
-              xmls.push(xmlPath)
-              console.log(xmls.length)
-            }
-          }) 
+        let select = document.getElementsByClassName('task__xml__select')[0]
+        // let select = document.getElementsByClassName('.task__xml__select')[0]
+        for (let i = 0; i < 5; i++) {
+          let opt = document.createElement('option')
+          opt.value = i
+          opt.innerHTML = i
+          select.appendChild(opt)
         }
       })
     })
   }
-
-
 }
 
 
@@ -105,7 +97,7 @@ function createMenu() {
 //     var xmlPage = require('./xml.js')
 //     let dir = document.querySelector('input[type=file]');
 //     let files = dir.files
-   
+
 //     let select = document.getElementsByClassName('task__xml__select')[0]
 //   }
 // }

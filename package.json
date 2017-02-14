@@ -1,13 +1,13 @@
 {
-    "name": "xml-gen",
-    "version": "0.0.1",
-    "main": "index.html",
-    "window": {
-        "toolbar": true
-    },
-    "dependencies": {
-        "xml2js": "latest",
-        "bootstrap": "3.3.7",
-        "jquery": "latest"
-    }
+  "name": "xml-gen",
+  "version": "0.0.1",
+  "main": "index.html",
+  "window": {
+    "toolbar": true
+  },
+  "dependencies": {
+    "bootstrap": "3.3.7",
+    "jquery": "latest",
+    "xml2js": "latest"
+  }
 }

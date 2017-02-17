@@ -2,6 +2,9 @@
   "name": "xml-gen",
   "version": "0.0.1",
   "main": "index.html",
+  "scripts": {
+    "start": "./node_modules/.bin/webpack --config webpack.config.js"
+  },
   "window": {
     "toolbar": true
   },
@@ -9,5 +12,13 @@
     "bootstrap": "3.3.7",
     "jquery": "latest",
     "xml2js": "latest"
+  },
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-preset-es2015": "^6.22.0",
+    "nw-dev": "^3.0.1",
+    "webpack": "^2.2.1"
   }
 }

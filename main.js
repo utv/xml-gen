@@ -1,13 +1,10 @@
+import newMain from './new-main'
+import $ from "jquery";
 
 (function ($, window, document) {
+  var path = './dist/bundle.js';
 
-  var path = './';
-  var fs = require('fs');
-
-  var reloadWatcher = fs.watch(path, function () {
-    location.reload();
-    reloadWatcher.close();
-  });
+  console.log(newMain.testNewMain())
 
   function attachOnClick(aEle, taskEle, htmlToLoad) {
     aEle.addEventListener('click', function () {
@@ -28,10 +25,10 @@
 
         $('.task').load(url, function () {
           let select = document.getElementsByClassName('task__xml__select')[0]
-          for (let i = 2; i < 5; i++) {
+          for (let i = 1; i < 5; i++) {
             let opt = document.createElement('option')
             opt.value = i
-            opt.innerHTML = i
+            opt.innerHTML = newMain.testNewMain()
             select.appendChild(opt)
           }
         })

@@ -1,7 +1,7 @@
 
 
-module.exports.testNewMain = function () {
+export function testNewMain() {
   return 'hello test a lot a lot more'
 }
 
-module.exports.listValues = [2,3,4];
+export let listValues = [2, 3, 4];

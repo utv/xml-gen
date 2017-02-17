@@ -24,6 +24,7 @@ const clientConfig = {
   node: {
     fs: "empty"
   },
+
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
@@ -34,7 +35,7 @@ const clientConfig = {
       exclude: /(node_modules)/,
       loader: 'babel-loader',
       query: {
-        presets: [['es2015', {modules: false}]],
+        presets: [['es2015', { modules: false }]],
         plugins: ['syntax-dynamic-import']
       }
     }]
@@ -48,4 +49,4 @@ const clientConfig = {
 };
 
 // module.exports = [ clientConfig, serverConfig  ];
-module.exports = [ clientConfig  ];
+module.exports = [clientConfig];

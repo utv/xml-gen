@@ -1,8 +1,9 @@
-import $ from 'jquery'
 import path from 'path'
 import newMain from './new-main';
 import { xmlObject } from './xml'
-var fs = require('fs')
+// var fs = require('fs')
+import fs from 'fs'
+import xml2js from 'xml2js'
 
 function attachOnClick(aEle, taskEle, htmlToLoad) {
   aEle.addEventListener('click', function () {
@@ -14,9 +15,6 @@ function setupMenu() {
   let menuEle = document.getElementsByClassName('menu')[0]
   const menuItem = ['xml', 'plist', 'image', 'sql']
 
-  fs.readFileSync(__filename)
-  console.log(path.basename(__filename))
-  console.log('hello')
   // loads elements and events for menu
   for (let i = 0; i < menuItem.length; i++) {
     let url = menuItem[i] + '.html'

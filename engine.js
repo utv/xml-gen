@@ -110,6 +110,7 @@ function setupUI() {
 
 $(document).ready(function () {
   setupUI()
-
+  let fs = require('fs')
+  // console.log(__filename)
 })
 
